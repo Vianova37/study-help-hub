@@ -76,8 +76,26 @@ function makeFlashcards() {
 }
 
 function makeQuestion(sentence) {
-  let words = sentence.split(" ");
   let lower = sentence.toLowerCase();
+  let words = sentence.split(" ");
+
+  if (lower.includes("photosynthesis")) {
+    return "What is photosynthesis?";
+  }
+
+  if (lower.includes("mitochondria")) {
+    return "What does the mitochondria do?";
+  }
+
+  if (lower.includes(" produces ")) {
+    let term = sentence.split(" produces ")[0];
+    return "What does " + term.trim() + " produce?";
+  }
+
+  if (lower.includes(" helps ")) {
+    let term = sentence.split(" helps ")[0];
+    return "How does " + term.trim() + " help?";
+  }
 
   if (lower.includes(" is the ")) {
     let term = sentence.split(" is the ")[0];
@@ -89,46 +107,12 @@ function makeQuestion(sentence) {
     return "What are " + term.trim() + "?";
   }
 
-  if (lower.includes(" produces ")) {
-    let term = sentence.split(" produces ")[0];
-    return "What does " + term.trim() + " produce?";
-  }
-
-  if (lower.includes(" helps ")) {
-    let term = sentence.split(" helps ")[0];
-    return "What does " + term.trim() + " help with?";
-  }
-
-  if (lower.includes(" causes ")) {
-    let term = sentence.split(" causes ")[0];
-    return "What does " + term.trim() + " cause?";
-  }
-
-  if (lower.includes("photosynthesis")) {
-    return "What is photosynthesis?";
-  }
-
-  if (lower.includes("mitochondria")) {
-    return "What does the mitochondria do?";
-  }
-if (lower.includes("process")) {
-    return "What process is being described?";
-}
-
-if (lower.includes("function")) {
-    return "What is the function of this?";
-}
-
-if (lower.includes("purpose")) {
-    return "What is the purpose of this?";
-}
-
-if (words.length > 1) {
+  if (words.length > 1) {
     return "What is " + words[0] + " " + words[1] + "?";
-}
+  }
 
-return "Explain this concept.";
- { 
+  return "What should you remember from this?";
+}
 function showCard() {
   let card = flashcards[currentCard];
 
