@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcard Maker | Study Help Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<h2>Study Help Hub</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="math.html">Math</a>
+<a href="science.html">Science</a>
+<a href="english.html">English</a>
+<a href="history.html">History</a>
+<a href="college.html">College</a>
+<a href="flashcards.html">Flashcards</a>
+</div>
+</nav>
+
+<header>
+<h1>🧠 Flashcard Maker</h1>
+<p>Paste notes below and turn them into simple study flashcards.</p>
+</header>
+
+<div class="container">
+<div class="card" style="max-width:700px;">
+<h2>Paste Your Notes</h2>
+
+<textarea id="notes" placeholder="Paste your notes here..." style="width:100%; height:180px; padding:15px; border-radius:12px; border:none; font-size:16px;"></textarea>
+
+<br><br>
+
+<button onclick="makeFlashcards()">Generate Flashcards</button>
+
+</div>
+
+<div class="card" style="max-width:700px;">
+<h2>Generated Flashcards</h2>
+<div id="flashcards"></div>
+</div>
+</div>
+
+<script>
+function makeFlashcards() {
+  let notes = document.getElementById("notes").value;
+  let lines = notes.split(".");
+  let output = "";
+
+  for (let i = 0; i < lines.length; i++) {
+    let sentence = lines[i].trim();
+
+    if (sentence.length > 20) {
+      output += `
+        <div class="card">
+          <h3>Question</h3>
+          <p>What is important about this?</p>
+          <h3>Answer</h3>
+          <p>${sentence}</p>
+        </div>
+      `;
+    }
+  }
+
+  if (output === "") {
+    output = "<p>Please paste longer notes first.</p>";
+  }
+
+  document.getElementById("flashcards").innerHTML = output;
+}
+</script>
+
+</body>
+</html>
