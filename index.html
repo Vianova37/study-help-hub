@@ -1,76 +1,57 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #0f172a, #1e3a8a);
-    color: white;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Help Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-header {
-    text-align: center;
-    padding: 60px 20px;
-}
+<header>
+  <h1>📚 Study Help Hub</h1>
+  <p>Study smarter. Stress less. Learn together.</p>
+  <button>Start Studying 🚀</button>
+</header>
 
-h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
+<nav>
+  <a href="#">Home</a>
+  <a href="#">Subjects</a>
+  <a href="#">Quizzes</a>
+  <a href="#">Resources</a>
+</nav>
 
-p {
-    font-size: 18px;
-    color: #d1d5db;
-}
+<div class="container">
+  <div class="card">
+    <h2>🔥 Today’s Challenge</h2>
+    <p>Try one quick quiz and build your study streak.</p>
+  </div>
 
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    background: rgba(255,255,255,0.08);
-    padding: 15px;
-    backdrop-filter: blur(10px);
-}
+  <div class="card">
+    <h2>📐 Math</h2>
+    <p>Algebra, geometry, formulas, and practice problems.</p>
+  </div>
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
-}
+  <div class="card">
+    <h2>🧪 Science</h2>
+    <p>Biology, chemistry, physics, and simple explanations.</p>
+  </div>
 
-nav a:hover {
-    color: #60a5fa;
-}
+  <div class="card">
+    <h2>📖 English</h2>
+    <p>Grammar, essays, vocabulary, and literature help.</p>
+  </div>
 
-.container {
-    max-width: 1100px;
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 25px;
-    padding: 20px;
-}
+  <div class="card">
+    <h2>🌎 History</h2>
+    <p>Timelines, study guides, and important events.</p>
+  </div>
 
-.card {
-    background: rgba(255,255,255,0.08);
-    border-radius: 18px;
-    padding: 25px;
-    transition: .3s;
-}
+  <div class="card">
+    <h2>🏆 Study Streak</h2>
+    <p>Stay motivated and track your progress every week.</p>
+  </div>
+</div>
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,.35);
-}
-
-button {
-    background: #3b82f6;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background: #2563eb;
-}
+</body>
+</html>
