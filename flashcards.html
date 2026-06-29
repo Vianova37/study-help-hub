@@ -46,30 +46,37 @@
 
 <script>
 function makeFlashcards() {
-  let notes = document.getElementById("notes").value;
-  let lines = notes.split(".");
-  let output = "";
+    let notes = document.getElementById("notes").value;
+    let lines = notes.split(".");
+    let output = "";
 
-  for (let i = 0; i < lines.length; i++) {
-    let sentence = lines[i].trim();
+    for (let i = 0; i < lines.length; i++) {
+        let sentence = lines[i].trim();
 
-    if (sentence.length > 20) {
-      output += `
-        <div class="card">
-          <h3>Question</h3>
-          <p>What is important about this?</p>
-          <h3>Answer</h3>
-          <p>${sentence}</p>
-        </div>
-      `;
+        if (sentence.length > 20) {
+            output += `
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-inner">
+                    <div class="flip-front">
+                        <h3>Question</h3>
+                        <p>What is important about this?</p>
+                    </div>
+
+                    <div class="flip-back">
+                        <h3>Answer</h3>
+                        <p>${sentence}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
     }
-  }
 
-  if (output === "") {
-    output = "<p>Please paste longer notes first.</p>";
-  }
+    if (output === "") {
+        output = "<p>Please paste longer notes first.</p>";
+    }
 
-  document.getElementById("flashcards").innerHTML = output;
+    document.getElementById("flashcards").innerHTML = output;
 }
 </script>
 
