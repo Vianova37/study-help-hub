@@ -30,8 +30,11 @@
 
 <div class="card">
 <h2>Paste Your Notes</h2>
+
 <textarea id="notes" placeholder="Example: Photosynthesis is the process plants use to make food. The mitochondria produces energy for the cell." style="width:100%; height:180px; padding:15px; border-radius:12px; border:none; font-size:16px;"></textarea>
+
 <br><br>
+
 <button onclick="makeFlashcards()">Generate Flashcards</button>
 </div>
 
@@ -77,7 +80,6 @@ function makeFlashcards() {
 
 function makeQuestion(sentence) {
   let lower = sentence.toLowerCase();
-  let words = sentence.split(" ");
 
   if (lower.includes("photosynthesis")) {
     return "What is photosynthesis?";
@@ -107,12 +109,9 @@ function makeQuestion(sentence) {
     return "What are " + term.trim() + "?";
   }
 
-  if (words.length > 1) {
-    return "What is " + words[0] + " " + words[1] + "?";
-  }
-
-  return "What should you remember from this?";
+  return "What should you remember from this note?";
 }
+
 function showCard() {
   let card = flashcards[currentCard];
 
@@ -124,12 +123,12 @@ function showCard() {
       <p style="font-size:14px; opacity:0.8;">Click card to flip</p>
     </div>
 
-    <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
-     <button onclick="previousCard()">Previous</button>
-<button onclick="flipCard()">Flip</button>
-<button onclick="nextCard()">Next</button>
-<button onclick="shuffleCards()">Shuffle</button>
-<button onclick="restartCards()">Restart</button>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
+      <button onclick="previousCard()">Previous</button>
+      <button onclick="flipCard()">Flip</button>
+      <button onclick="nextCard()">Next</button>
+      <button onclick="shuffleCards()">Shuffle</button>
+      <button onclick="restartCards()">Restart</button>
     </div>
   `;
 }
@@ -154,17 +153,18 @@ function previousCard() {
     showCard();
   }
 }
-  function shuffleCards() {
-    flashcards.sort(() => Math.random() - 0.5);
-    currentCard = 0;
-    showingAnswer = false;
-    showCard();
+
+function shuffleCards() {
+  flashcards.sort(() => Math.random() - 0.5);
+  currentCard = 0;
+  showingAnswer = false;
+  showCard();
 }
 
 function restartCards() {
-    currentCard = 0;
-    showingAnswer = false;
-    showCard();
+  currentCard = 0;
+  showingAnswer = false;
+  showCard();
 }
 </script>
 
