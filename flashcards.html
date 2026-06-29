@@ -131,9 +131,11 @@ function showCard() {
     </div>
 
     <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
-      <button onclick="previousCard()">Previous</button>
-      <button onclick="flipCard()">Flip</button>
-      <button onclick="nextCard()">Next</button>
+     <button onclick="previousCard()">Previous</button>
+<button onclick="flipCard()">Flip</button>
+<button onclick="nextCard()">Next</button>
+<button onclick="shuffleCards()">Shuffle</button>
+<button onclick="restartCards()">Restart</button>
     </div>
   `;
 }
@@ -157,6 +159,18 @@ function previousCard() {
     showingAnswer = false;
     showCard();
   }
+}
+  function shuffleCards() {
+    flashcards.sort(() => Math.random() - 0.5);
+    currentCard = 0;
+    showingAnswer = false;
+    showCard();
+}
+
+function restartCards() {
+    currentCard = 0;
+    showingAnswer = false;
+    showCard();
 }
 </script>
 
