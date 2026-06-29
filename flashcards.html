@@ -29,17 +29,22 @@
 <div class="container">
 
 <div class="card">
-<h2>Paste Your Notes</h2>
+<h2>Create a Flashcard</h2>
 
-<textarea id="notes" placeholder="Example: Photosynthesis is the process plants use to make food. The mitochondria produces energy for the cell." style="width:100%; height:180px; padding:15px; border-radius:12px; border:none; font-size:16px;"></textarea>
+<input
+id="question"
+type="text"
+placeholder="Enter your question..."
+style="width:100%; padding:15px; margin-bottom:15px; border-radius:12px; border:none; font-size:16px;">
+
+<textarea
+id="answer"
+placeholder="Enter the answer..."
+style="width:100%; height:150px; padding:15px; border-radius:12px; border:none; font-size:16px;"></textarea>
 
 <br><br>
 
-<button onclick="makeFlashcards()">Generate Flashcards</button>
-</div>
-
-<div class="card">
-<h2>Generated Flashcards</h2>
+<button onclick="addFlashcard()">➕ Add Flashcard</button>
 <div id="flashcards">
 <p>Your flashcards will show here.</p>
 </div>
