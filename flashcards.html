@@ -45,38 +45,110 @@
 </div>
 
 <script>
+let flashcards = [];
+let currentCard = 0;
+let showingAnswer = false;
+
 function makeFlashcards() {
     let notes = document.getElementById("notes").value;
-    let lines = notes.split(".");
-    let output = "";
+    let sentences = notes.split(".");
+    flashcards = [];
+    currentCard = 0;
+    showingAnswer = false;
 
-    for (let i = 0; i < lines.length; i++) {
-        let sentence = lines[i].trim();
+    for (let i = 0; i < sentences.length; i++) {
+        let sentence = sentences[i].trim();
 
         if (sentence.length > 20) {
-            output += `
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
-                <div class="flip-inner">
-                    <div class="flip-front">
-                        <h3>Question</h3>
-                        <p>What is important about this?</p>
-                    </div>
+            let question = makeQuestion(sentence);
 
-                    <div class="flip-back">
-                        <h3>Answer</h3>
-                        <p>${sentence}</p>
-                    </div>
-                </div>
-            </div>
-            `;
+            flashcards.push({
+                question: question,
+                answer: sentence
+            });
         }
     }
 
-    if (output === "") {
-        output = "<p>Please paste longer notes first.</p>";
+    if (flashcards.length === 0) {
+        document.getElementById("flashcards").innerHTML = "<p>Please paste longer notes first.</p>";
+        return;
     }
 
-    document.getElementById("flashcards").innerHTML = output;
+    showCard();
+}
+
+function makeQuestion(sentence) {
+    let lower = sentence.toLowerCase();
+
+    if (lower.includes("photosynthesis")) {
+        return "What is photosynthesis?";
+    }
+
+    if (lower.includes("mitochondria")) {
+        return "What does the mitochondria do?";
+    }
+
+    if (lower.includes("cell membrane")) {
+        return "What does the cell membrane do?";
+    }
+
+    if (lower.includes("dna")) {
+        return "What is DNA?";
+    }
+
+    if (lower.includes("atom")) {
+        return "What is an atom?";
+    }
+
+    if (lower.includes("world war")) {
+        return "What happened during this war?";
+    }
+
+    if (lower.includes("because")) {
+        return "Why did this happen?";
+    }
+
+    return "What does this sentence explain?";
+}
+
+function showCard() {
+    let card = flashcards[currentCard];
+
+    document.getElementById("flashcards").innerHTML = `
+        <div class="card" onclick="flipCard()" style="cursor:pointer; min-height:220px; display:flex; flex-direction:column; justify-content:center;">
+            <p>Card ${currentCard + 1} of ${flashcards.length}</p>
+            <h2>${showingAnswer ? "Answer" : "Question"}</h2>
+            <p style="font-size:20px;">${showingAnswer ? card.answer : card.question}</p>
+            <p style="font-size:14px; opacity:0.8;">Click card to flip</p>
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
+            <button onclick="previousCard()">Previous</button>
+            <button onclick="flipCard()">Flip</button>
+            <button onclick="nextCard()">Next</button>
+        </div>
+    `;
+}
+
+function flipCard() {
+    showingAnswer = !showingAnswer;
+    showCard();
+}
+
+function nextCard() {
+    if (currentCard < flashcards.length - 1) {
+        currentCard++;
+        showingAnswer = false;
+        showCard();
+    }
+}
+
+function previousCard() {
+    if (currentCard > 0) {
+        currentCard--;
+        showingAnswer = false;
+        showCard();
+    }
 }
 </script>
 
