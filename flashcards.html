@@ -111,14 +111,24 @@ function makeQuestion(sentence) {
   if (lower.includes("mitochondria")) {
     return "What does the mitochondria do?";
   }
-
-  if (words.length > 3) {
-    return "What does this explain about " + words[0] + " " + words[1] + "?";
-  }
-
-  return "What does this explain?";
+if (lower.includes("process")) {
+    return "What process is being described?";
 }
 
+if (lower.includes("function")) {
+    return "What is the function of this?";
+}
+
+if (lower.includes("purpose")) {
+    return "What is the purpose of this?";
+}
+
+if (words.length > 1) {
+    return "What is " + words[0] + " " + words[1] + "?";
+}
+
+return "Explain this concept.";
+ { 
 function showCard() {
   let card = flashcards[currentCard];
 
