@@ -36,9 +36,12 @@ Quick notes, fun practice, study guides, and tools to help you feel prepared wit
 <button onclick="window.location.href='math.html'">
 Start Exploring 🚀
 </button>
-<div style="margin-top:30px; text-align:center;">
-<input type="text" placeholder="🔍 Search study topics..." style="padding:15px; width:300px; border:none; border-radius:12px; font-size:16px;" />
-</div>
+<input
+id="searchBox"
+type="text"
+placeholder="🔍 Search study topics..."
+onkeydown="searchSite(event)"
+style="padding:15px; width:300px; border:none; border-radius:12px; font-size:16px;">
 </header>
 
 <div class="container">
@@ -111,6 +114,49 @@ Go to Flashcards
 coming soon
 </button>
 </div>
+<script>
+   function searchSite(event) {
+  if (event.key === "Enter") {
 
+    let search = document.getElementById("searchBox").value.toLowerCase();
+
+    if (search.includes("math") || search.includes("algebra") || search.includes("geometry") || search.includes("calculus") || search.includes("formula")) {
+      window.location.href = "math.html";
+    }
+
+    else if (search.includes("biology") || search.includes("chemistry") || search.includes("physics") || search.includes("science")) {
+      window.location.href = "science.html";
+    }
+
+    else if (search.includes("english") || search.includes("essay") || search.includes("grammar") || search.includes("vocabulary") || search.includes("literature")) {
+      window.location.href = "english.html";
+    }
+
+    else if (search.includes("gatsby") || search.includes("great gatsby")) {
+      window.location.href = "gatsby.html";
+    }
+
+    else if (search.includes("book") || search.includes("books")) {
+      window.location.href = "popular-books.html";
+    }
+
+    else if (search.includes("history")) {
+      window.location.href = "history.html";
+    }
+
+    else if (search.includes("college")) {
+      window.location.href = "college.html";
+    }
+
+    else if (search.includes("flashcard")) {
+      window.location.href = "flashcards.html";
+    }
+
+    else {
+      alert("No results found.");
+    }
+  }
+}
+</script>
 </body>
 </html>
