@@ -3,177 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Today's Challenge | Study Help Hub</title>
+<title>Popular Books | Study Help Hub</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <nav>
 <h2>Study Help Hub</h2>
 <div>
 <a href="index.html">Home</a>
-<a href="math.html">Math</a>
-<a href="science.html">Science</a>
 <a href="english.html">English</a>
-<a href="history.html">History</a>
-<a href="college.html">College</a>
+<a href="literature.html">Literature</a>
 <a href="flashcards.html">Flashcards</a>
 </div>
 </nav>
 
 <header>
-<p class="tag">🔥 Today's Challenge</p>
-<h1>Do one quick review question.</h1>
-<p>Keep your study streak alive.</p>
+<p class="tag">📚 Popular Books</p>
+<h1>Study the world's most popular books.</h1>
+<p>Complete summaries, spoilers, characters, themes, symbols, quotes, and essay help.</p>
 </header>
 
 <div class="container">
+
 <div class="card">
-<h2 id="question">Loading...</h2>
-<div id="answers"></div>
-<p id="result" style="font-size:20px; font-weight:bold;"></p>
-<button onclick="newQuestion()">New Question</button>
-</div>
+<h2>📖 The Great Gatsby</h2>
+<p>Full summary with spoilers, characters, symbols, themes, important quotes, and essay ideas.</p>
+<button>Open Guide (Coming Soon)</button>
 </div>
 
-<script>
-const questions = [
-  {
-    question: "What is the slope-intercept form of a line?",
-    answers: ["y = mx + b", "a² + b² = c²", "A = πr²"],
-    correct: "y = mx + b"
-  },
-  {
-    question: "Which organelle is called the powerhouse of the cell?",
-    answers: ["Nucleus", "Mitochondria", "Ribosome"],
-    correct: "Mitochondria"
-  },
-  {
-    question: "What does a thesis statement do?",
-    answers: ["Gives the main argument", "Ends the essay", "Lists sources"],
-    correct: "Gives the main argument"
-  },
-  {
-    question: "When did World War II end?",
-    answers: ["1918", "1945", "1962"],
-    correct: "1945"
-  }
-];
-
-let currentQuestion;
-
-function newQuestion() {
-  document.getElementById("result").innerText = "";
-  currentQuestion = questions[Math.floor(Math.random() * questions.length)];
-  document.getElementById("question").innerText = currentQuestion.question;
-
-  let answerHTML = "";
-  currentQuestion.answers.forEach(answer => {
-    answerHTML += `<button onclick="checkAnswer('${answer}')">${answer}</button><br><br>`;
-  });
-
-  document.getElementById("answers").innerHTML = answerHTML;
-}
-
-function checkAnswer(answer) {
-  if (answer === currentQuestion.correct) {
-    document.getElementById("result").innerText = "✅ Correct! Streak kept alive!";
-  } else {
-    document.getElementById("result").innerText = "❌ Try again!";
-  }
-}
-
-newQuestion();
-</script>
-
-</body>
-</html>
-
-
-
-<button onclick="window.location.href='todays-challenge.html'">
-Start Challenge 🚀
-</button>
-
-
-study-timer.html
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study Timer | Study Help Hub</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<nav>
-<h2>Study Help Hub</h2>
-<div>
-<a href="index.html">Home</a>
-<a href="math.html">Math</a>
-<a href="science.html">Science</a>
-<a href="english.html">English</a>
-<a href="history.html">History</a>
-<a href="college.html">College</a>
-<a href="flashcards.html">Flashcards</a>
+<div class="card">
+<h2>🐷 Animal Farm</h2>
+<p>Revolution, propaganda, Napoleon, Snowball, symbolism, and themes.</p>
+<button>Open Guide (Coming Soon)</button>
 </div>
-</nav>
 
-<header>
-<p class="tag">⏱️ Study Timer</p>
-<h1>Stay focused.</h1>
-<p>Use a Pomodoro timer while studying.</p>
-</header>
+<div class="card">
+<h2>👁️ 1984</h2>
+<p>Big Brother, surveillance, Winston, dystopian society, and symbolism.</p>
+<button>Open Guide (Coming Soon)</button>
+</div>
 
-<div class="container">
+<div class="card">
+<h2>❤️ Romeo and Juliet</h2>
+<p>Characters, tragedy, themes, important quotes, and full summary.</p>
+<button>Open Guide (Coming Soon)</button>
+</div>
 
-<div class="card" style="text-align:center;">
+<div class="card">
+<h2>🏠 A Doll's House</h2>
+<p>Nora, Torvald, gender roles, symbolism, and independence.</p>
+<button>Open Guide (Coming Soon)</button>
+</div>
 
-<h2 id="timer">25:00</h2>
+<div class="card">
+<h2>🎨 The Picture of Dorian Gray</h2>
+<p>Beauty, corruption, Lord Henry, Basil Hallward, symbolism, morality, and the portrait.</p>
+<button>Open Guide (Coming Soon)</button>
+</div>
 
-<button onclick="startTimer()">▶️ Start</button>
-<button onclick="pauseTimer()">⏸ Pause</button>
-<button onclick="resetTimer()">🔄 Reset</button>
+<div class="card">
+<h2>🏝️ Lord of the Flies</h2>
+<p>Civilization vs. savagery, symbolism, characters, themes, and important quotes.</p>
+<button>Open Guide (Coming Soon)</button>
+</div>
 
+<div class="card">
+<h2>⚖️ To Kill a Mockingbird</h2>
+<p>Justice, prejudice, Atticus Finch, Scout, themes, symbols, and full summary.</p>
+<button>Open Guide (Coming Soon)</button>
+</div>
+
+<div class="card">
+<h2>🏛️ The Odyssey</h2>
+<p>Odysseus's journey, Greek mythology, gods, monsters, themes, and important events.</p>
+<button>Open Guide (Coming Soon)</button>
+</div>
+
+<div class="card">
+<h2>🧛 Frankenstein</h2>
+<p>Victor Frankenstein, the Creature, responsibility, ambition, and symbolism.</p>
+<button>Open Guide (Coming Soon)</button>
+</div>
+
+<div class="card">
+<h2>📚 More Books Coming Soon</h2>
+<p>We're adding more study guides with complete summaries, spoilers, characters, themes, symbols, quotes, essay topics, and quizzes.</p>
 </div>
 
 </div>
-
-<script>
-let seconds = 1500;
-let interval;
-
-function updateDisplay(){
-const m = Math.floor(seconds/60);
-const s = seconds%60;
-document.getElementById("timer").innerText =
-String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
-}
-
-function startTimer(){
-clearInterval(interval);
-interval = setInterval(()=>{
-if(seconds>0){
-seconds--;
-updateDisplay();
-}
-},1000);
-}
-
-function pauseTimer(){
-clearInterval(interval);
-}
-
-function resetTimer(){
-clearInterval(interval);
-seconds=1500;
-updateDisplay();
-}
-
-updateDisplay();
-</script>
 
 </body>
 </html>
