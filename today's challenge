@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daily Challenge | Study Help Hub</title>
+<title>Today's Challenge | Study Help Hub</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,40 +22,35 @@
 </nav>
 
 <header>
-<p class="tag">🔥 Daily Challenge</p>
-<h1>Quick question of the day.</h1>
-<p>Answer one question to keep your brain active.</p>
+<p class="tag">🔥 Today's Challenge</p>
+<h1>Do one quick review question.</h1>
+<p>Keep your study streak alive.</p>
 </header>
 
 <div class="container">
-
 <div class="card">
-<h2 id="question">Loading question...</h2>
-
+<h2 id="question">Loading...</h2>
 <div id="answers"></div>
-
 <p id="result" style="font-size:20px; font-weight:bold;"></p>
-
 <button onclick="newQuestion()">New Question</button>
 </div>
-
 </div>
 
 <script>
 const questions = [
   {
     question: "What is the slope-intercept form of a line?",
-    answers: ["y = mx + b", "a² + b² = c²", "x = -b / 2a"],
+    answers: ["y = mx + b", "a² + b² = c²", "A = πr²"],
     correct: "y = mx + b"
   },
   {
-    question: "Which organelle is known as the powerhouse of the cell?",
-    answers: ["Nucleus", "Mitochondria", "Cell membrane"],
+    question: "Which organelle is called the powerhouse of the cell?",
+    answers: ["Nucleus", "Mitochondria", "Ribosome"],
     correct: "Mitochondria"
   },
   {
     question: "What does a thesis statement do?",
-    answers: ["Gives the main argument", "Ends the essay", "Lists vocabulary words"],
+    answers: ["Gives the main argument", "Ends the essay", "Lists sources"],
     correct: "Gives the main argument"
   },
   {
@@ -69,13 +64,10 @@ let currentQuestion;
 
 function newQuestion() {
   document.getElementById("result").innerText = "";
-
   currentQuestion = questions[Math.floor(Math.random() * questions.length)];
-
   document.getElementById("question").innerText = currentQuestion.question;
 
   let answerHTML = "";
-
   currentQuestion.answers.forEach(answer => {
     answerHTML += `<button onclick="checkAnswer('${answer}')">${answer}</button><br><br>`;
   });
@@ -85,7 +77,7 @@ function newQuestion() {
 
 function checkAnswer(answer) {
   if (answer === currentQuestion.correct) {
-    document.getElementById("result").innerText = "✅ Correct!";
+    document.getElementById("result").innerText = "✅ Correct! Streak kept alive!";
   } else {
     document.getElementById("result").innerText = "❌ Try again!";
   }
