@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Challenge | Study Help Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<h2>Study Help Hub</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="math.html">Math</a>
+<a href="science.html">Science</a>
+<a href="english.html">English</a>
+<a href="history.html">History</a>
+<a href="college.html">College</a>
+<a href="flashcards.html">Flashcards</a>
+</div>
+</nav>
+
+<header>
+<p class="tag">🔥 Daily Challenge</p>
+<h1>Quick question of the day.</h1>
+<p>Answer one question to keep your brain active.</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2 id="question">Loading question...</h2>
+
+<div id="answers"></div>
+
+<p id="result" style="font-size:20px; font-weight:bold;"></p>
+
+<button onclick="newQuestion()">New Question</button>
+</div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    question: "What is the slope-intercept form of a line?",
+    answers: ["y = mx + b", "a² + b² = c²", "x = -b / 2a"],
+    correct: "y = mx + b"
+  },
+  {
+    question: "Which organelle is known as the powerhouse of the cell?",
+    answers: ["Nucleus", "Mitochondria", "Cell membrane"],
+    correct: "Mitochondria"
+  },
+  {
+    question: "What does a thesis statement do?",
+    answers: ["Gives the main argument", "Ends the essay", "Lists vocabulary words"],
+    correct: "Gives the main argument"
+  },
+  {
+    question: "When did World War II end?",
+    answers: ["1918", "1945", "1962"],
+    correct: "1945"
+  }
+];
+
+let currentQuestion;
+
+function newQuestion() {
+  document.getElementById("result").innerText = "";
+
+  currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+
+  document.getElementById("question").innerText = currentQuestion.question;
+
+  let answerHTML = "";
+
+  currentQuestion.answers.forEach(answer => {
+    answerHTML += `<button onclick="checkAnswer('${answer}')">${answer}</button><br><br>`;
+  });
+
+  document.getElementById("answers").innerHTML = answerHTML;
+}
+
+function checkAnswer(answer) {
+  if (answer === currentQuestion.correct) {
+    document.getElementById("result").innerText = "✅ Correct!";
+  } else {
+    document.getElementById("result").innerText = "❌ Try again!";
+  }
+}
+
+newQuestion();
+</script>
+
+</body>
+</html>
