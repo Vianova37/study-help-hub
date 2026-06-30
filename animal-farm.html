@@ -157,27 +157,138 @@ Represents hardworking people who are loyal but taken advantage of.</p>
 </div>
 
 <div class="card">
-<h2>🧠 Quick Quiz</h2>
+<h2>🧠 Animal Farm Quiz</h2>
 
-<ol>
-<li>Who wrote <i>Animal Farm</i>?</li>
-<li>Who says "I will work harder"?</li>
-<li>Who becomes the dictator?</li>
-<li>What do the dogs represent?</li>
-<li>Finish the quote: "All animals are equal, but..."</li>
-</ol>
+<p id="question"><b>Question will appear here.</b></p>
 
-<details>
-<summary><b>Show Answers</b></summary>
+<div id="answers"></div>
 
-<p>1. George Orwell</p>
-<p>2. Boxer</p>
-<p>3. Napoleon</p>
-<p>4. The secret police</p>
-<p>5. "...some animals are more equal than others."</p>
+<p id="score" style="font-weight:bold;"></p>
 
-</details>
+<button onclick="nextQuestion()">Next Question ➜</button>
 </div>
+
+<script>
+
+const quiz = [
+
+{
+question:"Who wrote Animal Farm?",
+answers:["George Orwell","Charles Dickens","William Shakespeare","John Steinbeck"],
+correct:"George Orwell"
+},
+
+{
+question:"Who becomes the dictator of Animal Farm?",
+answers:["Snowball","Napoleon","Boxer","Mr. Jones"],
+correct:"Napoleon"
+},
+
+{
+question:"Who says 'I will work harder'?",
+answers:["Boxer","Benjamin","Napoleon","Clover"],
+correct:"Boxer"
+},
+
+{
+question:"Who is chased off the farm?",
+answers:["Old Major","Napoleon","Snowball","Squealer"],
+correct:"Snowball"
+},
+
+{
+question:"What do the dogs represent?",
+answers:["Workers","Secret police","Farmers","Teachers"],
+correct:"Secret police"
+},
+
+{
+question:"What is the windmill mainly used to symbolize?",
+answers:["Freedom","Hope and manipulation","Education","Wealth"],
+correct:"Hope and manipulation"
+},
+
+{
+question:"Which pig spreads propaganda?",
+answers:["Napoleon","Old Major","Snowball","Squealer"],
+correct:"Squealer"
+},
+
+{
+question:"Finish the quote: 'All animals are equal, but...'",
+answers:[
+"the pigs work harder.",
+"some animals are more equal than others.",
+"humans are stronger.",
+"freedom is impossible."
+],
+correct:"some animals are more equal than others."
+}
+
+];
+
+let current = 0;
+let points = 0;
+
+function nextQuestion(){
+
+if(current >= quiz.length){
+
+document.getElementById("question").innerHTML =
+"<h3>🎉 Quiz Complete!</h3>";
+
+document.getElementById("answers").innerHTML =
+"<p>You scored <b>"+points+" / "+quiz.length+"</b></p>";
+
+document.getElementById("score").innerHTML="";
+
+return;
+
+}
+
+let q = quiz[current];
+
+document.getElementById("question").innerHTML =
+"<b>"+q.question+"</b>";
+
+let html="";
+
+q.answers.forEach(answer=>{
+
+html += `<button onclick="checkAnswer('${answer.replace(/'/g,"\\'")}')">${answer}</button><br><br>`;
+
+});
+
+document.getElementById("answers").innerHTML = html;
+
+document.getElementById("score").innerHTML =
+"Question "+(current+1)+" of "+quiz.length;
+
+}
+
+function checkAnswer(answer){
+
+if(answer===quiz[current].correct){
+
+alert("✅ Correct!");
+
+points++;
+
+}else{
+
+alert("❌ Incorrect.\n\nCorrect answer:\n"+quiz[current].correct);
+
+}
+
+current++;
+
+nextQuestion();
+
+}
+
+nextQuestion();
+
+</script>
 
 </div>
 
