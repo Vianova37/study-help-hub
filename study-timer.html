@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Timer | Study Help Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+<h2>Study Help Hub</h2>
+<div>
+<a href="index.html">Home</a>
+<a href="math.html">Math</a>
+<a href="science.html">Science</a>
+<a href="english.html">English</a>
+<a href="history.html">History</a>
+<a href="college.html">College</a>
+<a href="flashcards.html">Flashcards</a>
+</div>
+</nav>
+
+<header>
+<p class="tag">⏱️ Study Timer</p>
+<h1>Stay focused.</h1>
+<p>Use a Pomodoro timer while studying.</p>
+</header>
+
+<div class="container">
+
+<div class="card" style="text-align:center;">
+
+<h2 id="timer">25:00</h2>
+
+<button onclick="startTimer()">▶️ Start</button>
+<button onclick="pauseTimer()">⏸ Pause</button>
+<button onclick="resetTimer()">🔄 Reset</button>
+
+</div>
+
+</div>
+
+<script>
+let seconds = 1500;
+let interval;
+
+function updateDisplay(){
+const m = Math.floor(seconds/60);
+const s = seconds%60;
+document.getElementById("timer").innerText =
+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+}
+
+function startTimer(){
+clearInterval(interval);
+interval = setInterval(()=>{
+if(seconds>0){
+seconds--;
+updateDisplay();
+}
+},1000);
+}
+
+function pauseTimer(){
+clearInterval(interval);
+}
+
+function resetTimer(){
+clearInterval(interval);
+seconds=1500;
+updateDisplay();
+}
+
+updateDisplay();
+</script>
+
+</body>
+</html>
